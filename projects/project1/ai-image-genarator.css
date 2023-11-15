@@ -7,7 +7,7 @@
     font-family: Poppins;
 }
 .image-generator{
-    height: 40vh;
+    height: 50vh;
     background: url("wallpaperflare.com_wallpaper\ \(2\).jpg");
     background-size: cover;
     background-position: center;
@@ -85,12 +85,15 @@
     padding: 0 25px;
     cursor: pointer;
 }
+.img-gallery .img-card.loader{
+    display: none;
+}
 .img-gallery{
     display: flex;
     gap: 15px;
     padding: 0 15px;
     max-width: 1250px;
-    margin: 50px 0;
+    margin: 50px auto;
     justify-content: center;
     flex-wrap: wrap;
 }
@@ -152,6 +155,27 @@
         height: 40px;
         margin-top: 15px;
         align-items: center;
-        justify-self: flex-end;
+        justify-content: flex-end;
+    }
+    .genarate-form .img-quant{
+        color: #fff;
+    }
+    .genarate-form .img-quant option{
+        color: #000;
+    }
+    .genarate-form .generate-btn{
+        height: 100%;
+    }
+    .img-gallery{
+        margin-top: 20px;
+    }
+    .img-gallery .img-card:not(.loader) a{
+        display: flex;
+    }
+    
+}
+@media screen and (max-width: 650px){
+    .img-gallery .img-card{
+        width: 100%;
     }
 }
