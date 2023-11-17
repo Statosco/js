@@ -32,5 +32,3 @@ const handleFormSubmission = (e) => {
     generateGallery.innerHTML =imgCardMarkUp;
     generateAiImage(userPrompt, userImgQuant);
 }
-
-generateForm.addEventListener("submit", handleFormSubmission);
