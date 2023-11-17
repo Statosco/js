@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #f1f4fd;
+}
+.container{
+    max-width: 1200px;
+    width: 95%;
+}
+.slider-wraper {
+    position: relative;
+}
+.slider-wraper button {
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 50px;
+    width: 50px;
+    color: #fff;
+    background: #000;
+    line-height: 50px;
+    font-size: 2.2rem;
+    cursor: pointer;
+}
+.slider-wraper button#prev-slide{
+    left: -20px;
+}
+.slider-wraper button#next-slide{
+    right: -20px;
+}
+.slider-wraper i {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    line-height: 50px;
+}
+.slider-wraper .image-list {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 18px;
+    font-size: 0;
+    overflow: auto;
+    scrollbar-width: none;
+    margin-bottom: 30px;
+}
+.slider-wraper .image-list::-webkit-scrollbar{
+    display: none;
+}
+.slider-wraper .image-list .image-item {
+    width: 325px;
+    height: 400px;
+    object-fit: cover;
+}
+.container .slider-scroll {
+    height: 24px;
+    width: 100%;
+}
+.slider-scroll .scrollbar-track {
+    height: 2px;
+    width: 100%;
+    background: #ccc;
+    border-radius: 4px;
+    position: relative;
+}
+.slider-scroll:hover .scrollbar-track {
+    height: 4px;
+}
+.slider-scroll .scrollbar-thumb {
+    position: absolute;
+    height: 2px;
+    width: 50%;
+    background: #000;
+    height: 100%;
+    border-radius: inherit;
+    cursor: grab;
+}
+.slider-scroll:hover .scrollbar-thumb:active {
+    cursor: grabbing;
+    height: 8px;
+    top: -2px;
+}
+.slider-scroll .scrollbar-thumb::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -10px;
+    bottom: -10px;
+}
