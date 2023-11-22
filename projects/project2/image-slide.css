@@ -100,3 +100,19 @@ body{
     top: -10px;
     bottom: -10px;
 }
+@media(max-width: 1023px){
+    .slider-wraper .slide-btn{
+        display: none!important;
+    }
+    .slider-wraper .image-list{
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+    .slider-wraper .image-list .image-item{
+        width: 280px;
+        height: 380px;
+    }
+    .slider-scroll .scrollbar-thumb{
+        width: 20%;
+    }
+}

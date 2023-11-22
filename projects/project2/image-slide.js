@@ -14,9 +14,11 @@ const initSlider = ()=> {
             const newThumbPosition = thumbPosition + deltaX;
             const maxThumbPosition = sliderSrollBar.getBoundingClientRect().width - sliderSrollBarThumb.offsetWidth;
 
-            const boundedPOs = Math.max(0, Math.min(maxThumbPosition, newThumbPosition))
+            const boundedPOs = Math.max(0, Math.min(maxThumbPosition, newThumbPosition));
+            const scrollPosition = (boundedPOs / maxThumbPosition) * maxScrollLeft;
 
             sliderSrollBarThumb.style.left = `${boundedPOs}px`;
+            imageList.scrollLeft = scrollPosition;
         }
 
         const handleMouseUp = () => {
