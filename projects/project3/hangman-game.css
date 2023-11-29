@@ -12,6 +12,7 @@ body{
     justify-content: center;
     min-height: 100vh;
     background: #5e63ba;
+    padding: 0 10px;
 }
 .container{
     width: 850px;
@@ -62,27 +63,92 @@ body{
 }
 .game-box .guesses-tex b{
     font-weight: 600;
+    color: red;
 }
 .game-box .keyboard{
     display: flex;
     margin-top: 40px;
     gap: 5px;
+    margin-top: 40px;
     flex-wrap: wrap;
     justify-content: center;
 }
-.keyboard button{
+:where(.game-modal, .keyboard) button{
     color: #fff;
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
-    padding: 7px;
     border: none;
     outline: none;
     background: #5e63ba;
     border-radius: 4px;
     text-transform: uppercase;
+    
+}
+.keyboard button{
+    padding: 7px;
     width: calc(100% / 9 - 5px);
 }
-.keyboard button:hover{
+.keyboard button[disabled]{
+    opacity: 0.6;
+    pointer-events: none;
+}
+:where(.game-modal, .keyboard) button:hover{
     background: #8286c9;
+}
+.game-modal{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.4s ease;
+}
+.game-modal.show{
+    opacity: 1;
+    pointer-events: auto;
+}
+.game-modal .content{
+    background: #fff;
+    max-width: 420px;
+    width: 100%;
+    text-align: center;
+    border-radius: 10px;
+    padding: 30px;
+}
+.game-modal img{
+    max-width: 130px;
+    margin-bottom: 20px;
+}
+.game-modal h4{
+    font-size: 1.53rem;
+    margin: 15px 0 30px;
+    font-weight: 500;
+}
+.game-modal p b{
+    color: #5e63ba;
+    font-weight: 600;
+}
+.game-modal button{
+    padding: 12px 23px;
+}
+@media(max-width: 782px){
+    .container{
+        flex-direction: column;
+        padding: 30px 15px;
+        align-items: center;
+    }
+    .hangman-box img{
+        max-width: 200px;
+    }
+    .hangman-box h1{
+        display: none;
+    }
 }
