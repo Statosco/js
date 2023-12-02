@@ -5,16 +5,26 @@ const wordDisplay  = document.querySelector(".word-display");
 const gameModal  = document.querySelector(".game-modal");
 const guessesText  = document.querySelector(".guesses-tex b");
 const keyboardDiv  = document.querySelector(".keyboard");
+const playAgain  = document.querySelector(".play-again");
 
-let currentWord, correctLetters = [], wrongGuestCount= 0;
+let currentWord, correctLetters, wrongGuestCount;
 const maxGuesses = 6;
 
+const resetGame = () => {
+    correctLetters = [];
+    wrongGuestCount= 0;
+    hangmanImage.src = `hangman-${wrongGuestCount}.svg`
+    guessesText.innerText = `${wrongGuestCount} / ${maxGuesses}`;
+    keyboardDiv.querySelectorAll("button").forEach(btn => btn.disabled = false)
+    wordDisplay.innerHTML = currentWord.split("").map(() => `<li class="letter"></li>`).join("");
+    gameModal.classList.remove("show")
+}
 
  const getRandomWord = () =>{
     const{word, hint} = wordList[Math.floor(Math.random() * wordList.length)];
     currentWord = word;
     document.querySelector(".hint-tex b").innerText = hint;
-    wordDisplay.innerHTML = word.split("").map(() => `<li class="letter"></li>`).join("");
+    resetGame();
  }
 
  const gameOver = (isVicory) =>{
@@ -57,3 +67,4 @@ for (let i = 97; i <= 122; i++) {
 }
 
 getRandomWord();
+playAgain.addEventListener("click", getRandomWord);
