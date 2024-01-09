@@ -7,7 +7,16 @@ const API_key = "f697fec9dc19ced06492c15e7a169b03"
 
 const createWeatherCard = (cityName, weatherItem, index) => {
     if(index === 0){
-
+        return `<div class="details">
+                    <h2>${cityName} (${weatherItem.dt_txt.split(" ")[0]})</h2>
+                    <h4>Temperature: ${(weatherItem.main.temp - 273.15).toFixed(2)}°C</h4>
+                    <h4>Wind: ${weatherItem.wind.speed} M/S</h4>
+                    <h4>Humidity: ${weatherItem.main.humidity}%</h4>
+                </div>
+                <div class="icon">
+                <img src="https://openweathermap.org/img/wn/${weatherItem.weather[0].icon}@4x.png" alt="weather image">
+                    <h4>${weatherItem.weather[0].description}</h4>
+                </div> `
     }else{
         return `<li class="card">
         <h3>(${weatherItem.dt_txt.split(" ")[0]})</h3>
@@ -34,12 +43,12 @@ const getWeatherDetails = (cityName, lat, lon) => {
             }
             
         });
-
         cityInput.value = "";
-        weatherCardsDiv.innerHTML= "";
         currentweatherCardsDiv.innerHTML= "";
+        weatherCardsDiv.innerHTML= "";
 
-        console.log(fiveDaysForecast)
+
+        // console.log(fiveDaysForecast)
         fiveDaysForecast.forEach((weatherItem, index) => {
             if(index === 0){
                 weatherCardsDiv.insertAdjacentHTML("beforeend", createWeatherCard(cityName, weatherItem, index));
